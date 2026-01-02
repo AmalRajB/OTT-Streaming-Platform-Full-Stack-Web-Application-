@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'admin_profile.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'admin_navbar.css' %}">
+</head>
+
+<body>
+    {% include 'partials/admin_navbar.html' %}
+    <div class="container">
+        <h1 class="profile_h1">Profile</h1>
+        <!-- <form action="">
+            <input class="email" type="text" placeholder="Admin Email.." disabled>
+        </form> -->
+        <h4 class="adminemail">{{admin_email}}</h4>
+        <div class="btnalign">
+            <!-- <span class="btn btn-sm btn-secondary" type="button" value="logout">logout</span> -->
+            <form method="POST" action="{% url 'admin_logout' %}" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-sm btn-secondary"
+                    onclick="return confirm('Are you sure you want to logout?');">
+                    Logout
+                </button>
+            </form>
+            <span class="btn btn-sm btn-secondary" type="button" value="update"> <a style="text-decoration: none; color: white;" href="{% url 'admin_passchange' %}">update</a></span>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

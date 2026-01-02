@@ -1,0 +1,442 @@
+/* Base Styles */
+.watchhistory_body {
+    background-color: #0A0A0A;
+    min-height: 100vh;
+    padding: 80px 0 40px;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.watchhistory_body .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    overflow-x: hidden;
+}
+
+/* Title */
+.watchhistory_title {
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    padding-left: 10px;
+    background: linear-gradient(135deg, #fff 0%, #888 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Loading State */
+.loading_text {
+    color: #888;
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 100px;
+}
+
+/* Empty State */
+.empty_state {
+    text-align: center;
+    padding: 80px 20px;
+    color: #888;
+}
+
+.empty_icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+    opacity: 0.3;
+}
+
+.empty_state h2 {
+    color: #fff;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.empty_state p {
+    font-size: 1.1rem;
+    color: #666;
+}
+
+/* Watch History Grid - Column Layout */
+.watchhistory_grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Watch History Card - Horizontal Layout */
+.watch_history_card {
+    background: linear-gradient(145deg, #1a1a1a 0%, #0f0f0f 100%);
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    height: 180px;
+}
+
+.watch_history_card:hover {
+    transform: translateX(8px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Card Image Wrapper - Fixed Width for Horizontal Layout */
+.card_image_wrapper {
+    position: relative;
+    width: 320px;
+    min-width: 320px;
+    height: 100%;
+    overflow: hidden;
+    background: #000;
+}
+
+.card_image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.watch_history_card:hover .card_image {
+    transform: scale(1.1);
+}
+
+/* Play Overlay */
+.play_overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.watch_history_card:hover .play_overlay {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.play_icon {
+    width: 24px;
+    height: 24px;
+    color: #fff;
+    margin-left: 3px;
+}
+
+/* Card Info - Flex Layout */
+.card_info {
+    padding: 20px 24px;
+    background: rgba(23, 22, 22, 0.8);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.movie_title {
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 12px 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.watch_date {
+    color: #888;
+    font-size: 0.9rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.clock_icon {
+    width: 16px;
+    height: 16px;
+    opacity: 0.7;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .watchhistory_body {
+        padding: 70px 0 35px;
+    }
+
+    .watchhistory_title {
+        font-size: 2.2rem;
+        margin-bottom: 35px;
+    }
+
+    .watch_history_card {
+        height: 160px;
+    }
+
+    .card_image_wrapper {
+        width: 280px;
+        min-width: 280px;
+    }
+
+    .play_overlay {
+        width: 55px;
+        height: 55px;
+    }
+
+    .play_icon {
+        width: 22px;
+        height: 22px;
+    }
+}
+
+@media (max-width: 768px) {
+    .watchhistory_body {
+        padding: 60px 0 30px;
+    }
+
+    .watchhistory_title {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+
+    .watchhistory_grid {
+        gap: 15px;
+    }
+
+    .watch_history_card {
+        height: 150px;
+    }
+
+    .card_image_wrapper {
+        width: 240px;
+        min-width: 240px;
+    }
+
+    .card_info {
+        padding: 15px 18px;
+    }
+
+    .movie_title {
+        font-size: 1rem;
+    }
+
+    .watch_date {
+        font-size: 0.85rem;
+    }
+
+    .play_overlay {
+        width: 50px;
+        height: 50px;
+    }
+
+    .play_icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .clock_icon {
+        width: 14px;
+        height: 14px;
+    }
+}
+
+@media (max-width: 600px) {
+    .watchhistory_body {
+        padding: 50px 0 25px;
+    }
+
+    .watchhistory_title {
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+    }
+
+    .watch_history_card {
+        height: 140px;
+    }
+
+    .card_image_wrapper {
+        width: 200px;
+        min-width: 200px;
+    }
+
+    .card_info {
+        padding: 12px 15px;
+    }
+
+    .movie_title {
+        font-size: 0.95rem;
+        margin-bottom: 8px;
+    }
+
+    .watch_date {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .watchhistory_body {
+        padding: 40px 0 20px;
+        overflow-x: hidden;
+    }
+
+    .watchhistory_body .container {
+        padding: 0 10px;
+        max-width: 100%;
+    }
+
+    .watchhistory_title {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+        padding-left: 5px;
+    }
+
+    .watchhistory_grid {
+        gap: 10px;
+        padding: 0;
+        max-width: 100%;
+    }
+
+    .watch_history_card {
+        flex-direction: column;
+        height: auto;
+        margin: 0;
+        max-width: 100%;
+    }
+
+    .card_image_wrapper {
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
+        padding-top: 56.25%;
+        height: 0;
+    }
+
+    .card_image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .play_overlay {
+        width: 50px;
+        height: 50px;
+    }
+
+    .play_icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .card_info {
+        padding: 12px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .movie_title {
+        font-size: 0.95rem;
+        margin-bottom: 8px;
+    }
+
+    .watch_date {
+        font-size: 0.8rem;
+    }
+
+    .clock_icon {
+        width: 12px;
+        height: 12px;
+    }
+
+    .empty_state {
+        padding: 60px 15px;
+    }
+
+    .empty_icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .empty_state h2 {
+        font-size: 1.4rem;
+    }
+
+    .empty_state p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .watchhistory_body .container {
+        padding: 0 8px;
+    }
+
+    .watchhistory_title {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+        padding-left: 2px;
+    }
+
+    .watchhistory_grid {
+        gap: 8px;
+    }
+
+    .card_info {
+        padding: 10px;
+    }
+
+    .movie_title {
+        font-size: 0.85rem;
+        margin-bottom: 6px;
+    }
+
+    .watch_date {
+        font-size: 0.75rem;
+    }
+
+    .play_overlay {
+        width: 45px;
+        height: 45px;
+    }
+
+    .play_icon {
+        width: 18px;
+        height: 18px;
+    }
+
+    .empty_state {
+        padding: 50px 10px;
+    }
+
+    .empty_state h2 {
+        font-size: 1.2rem;
+    }
+
+    .empty_state p {
+        font-size: 0.9rem;
+    }
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie</title>
+
+    {% load static %}
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+
+    <!-- Your CSS -->
+    <link rel="stylesheet" href="{% static 'admin_single_movie.css' %}">
+</head>
+
+<body>
+    <div class="container mt-3">
+
+            <img class="thumbnail" src="{{ movie_data.thumbnail.url }}" alt="movie">
+            <h4 class="title">{{movie_data.title}}</h4>
+            <p class="discription">{{movie_data.discription}}</p>
+
+    </div>
+</body>
+
+</html>

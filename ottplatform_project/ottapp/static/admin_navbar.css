@@ -1,0 +1,176 @@
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+.admin-navbar {
+    width: 100%;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    /* Subtle border to distinguish from body */
+    padding: 1rem 0;
+    font-family: 'Inter', sans-serif;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    position: relative;
+    /* Ensure z-index works if needed */
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: center;
+    /* Center by default on desktop */
+    align-items: center;
+    position: relative;
+    /* Needed for absolute positioning of logo */
+    min-height: 80px;
+    /* Ensure container is tall enough for the logo */
+}
+
+/* Logo Styling */
+.navbar-brand {
+    position: absolute;
+    left: 1rem;
+    display: flex;
+    align-items: center;
+    /* Ensure z-index is higher if needed, though default usually works */
+    z-index: 10;
+}
+
+.navbar-logo {
+    height: 80px;
+    /* Increased size */
+    width: auto;
+    object-fit: contain;
+}
+
+
+
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: #4b5563;
+    /* Slate-600 for soft black */
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s ease, transform 0.2s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+}
+
+.nav-item:hover {
+    color: #111827;
+    /* Darker black on hover */
+    background-color: #f3f4f6;
+    /* Very light gray hover background */
+    transform: translateY(-1px);
+}
+
+.nav-item.active {
+    color: #2563eb;
+    /* Primary blue for active state */
+    background-color: #eff6ff;
+}
+
+/* Hamburger Menu (Hidden on Desktop) */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.hamburger {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: #4b5563;
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background-color: #4b5563;
+    transition: transform 0.3s ease, top 0.3s ease;
+    left: 0;
+}
+
+.hamburger::before {
+    top: -8px;
+}
+
+.hamburger::after {
+    top: 8px;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    .nav-container {
+        justify-content: space-between;
+        /* Space out logo/toggle on mobile */
+        flex-wrap: wrap;
+        /* Allow items to wrap */
+    }
+
+    .navbar-brand {
+        position: static;
+        /* Reset absolute positioning on mobile */
+        left: auto;
+    }
+
+    .menu-toggle {
+        display: block;
+        margin-left: auto;
+        /* Push to the right if needed */
+    }
+
+    .nav-links {
+        display: none;
+        /* Hidden by default */
+        flex-direction: column;
+        width: 100%;
+        margin-top: 1rem;
+        gap: 0.5rem;
+        background-color: #ffffff;
+        border-top: 1px solid #f3f4f6;
+        padding-top: 1rem;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-item {
+        width: 100%;
+        text-align: center;
+        padding: 0.75rem;
+    }
+
+    /* Hamburger Animation */
+    .menu-toggle.active .hamburger {
+        background-color: transparent;
+    }
+
+    .menu-toggle.active .hamburger::before {
+        transform: rotate(45deg);
+        top: 0;
+    }
+
+    .menu-toggle.active .hamburger::after {
+        transform: rotate(-45deg);
+        top: 0;
+    }
+}

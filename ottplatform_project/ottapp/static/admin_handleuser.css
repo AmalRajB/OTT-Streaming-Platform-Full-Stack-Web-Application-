@@ -1,0 +1,16 @@
+/* Container styling */
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+/* Prevent table movement when button text changes */
+.toggle-btn {
+    width: 90px;
+    text-align: center;
+}
+
+/* Button hover style */
+.toggle-btn:hover {
+    opacity: 0.85;
+}

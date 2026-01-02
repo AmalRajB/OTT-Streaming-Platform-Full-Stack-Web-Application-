@@ -1,0 +1,74 @@
+body{
+    background-image: url('images/loginbg.png');
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.card{
+  width: 450px;
+  height: 400px;
+  margin: 40px auto;
+  margin-top: 80px;
+  padding: 30px;
+  background: rgba(49, 49, 49, 0.215);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  color: #fff;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+input {
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  outline: none;
+}
+
+input::placeholder {
+  color: #ddd;
+}
+
+button {
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  /* background: rgba(255, 255, 255, 0.20); */
+  background-color: rgb(51, 51, 207);
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: rgba(4, 30, 199, 0.35);
+}
+
+.signup{
+margin-top:20px;}

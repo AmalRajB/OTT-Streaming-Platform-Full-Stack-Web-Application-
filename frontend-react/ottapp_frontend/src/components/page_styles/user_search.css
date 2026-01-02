@@ -1,0 +1,151 @@
+.searchbody {
+    background-color: #0A0A0A;
+    min-height: 80vh;
+    padding-top: 100px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.searchform {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    max-width: 700px;
+    
+}
+
+.searchform input {
+    flex: 1;
+    padding: 15px 25px;
+    border-radius: 50px;
+    border: 1px solid #333;
+    background-color: #121212;
+    color: white;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.searchform input:focus {
+    background-color: #1f1f1f;
+    border-color: #555;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+.searchform button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background-color: #220c90;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    padding: 0;
+}
+
+.searchform button:hover {
+    transform: scale(1.1);
+    background-color: blue;
+}
+
+.searchform button svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+.search-container {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.error-message {
+    color: #3611ec;
+    /* background: rgba(113, 77, 255, 0.299); */
+    padding: 10px 20px;
+    border-radius: 5px;
+    /* border: 1px solid rgba(255, 77, 77, 0.2); */
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+.search_result {
+    width: 100%;
+}
+
+
+.card-list-popularr {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.card-list-popularr .card {
+    flex: 0 0 auto;
+}
+
+.card-list-popularr img {
+    width: 300px;
+    height: 200px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.card-list-popularr img:hover {
+    transform: scale(1.05);
+}
+.card-list-popularr {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 10px 0;
+
+}
+
+
+
+
+@media (max-width: 480px) {
+
+    .searchform {
+
+        width: 100px;
+
+    }
+
+    .searchform button:hover {
+        transform: scale(1.1);
+        background-color: rgb(48, 7, 214);
+    }
+
+    .searchform button {
+        width: 20px;
+        height: 40px;
+    }
+
+    .searchform {
+        width: 100%;
+        max-width: 700px;
+    }
+
+
+
+
+
+
+
+}

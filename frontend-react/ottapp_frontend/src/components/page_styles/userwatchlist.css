@@ -1,0 +1,132 @@
+.watchlistbody {
+    background-color: #0A0A0A;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Empty state heading - centered */
+.watchlistbody h1 {
+    text-align: center;
+    padding-top: 50px;
+    margin-bottom: 20px;
+    color: white;
+    background: linear-gradient(135deg, #fff 0%, #888 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Watchlist heading - left aligned */
+.watchlistbody .titlecards h4 {
+    text-align: left;
+    padding-left: 20px;
+    margin-bottom: 20px;
+    color: white;
+    font-size: 1.8rem;
+    background: linear-gradient(135deg, #fff 0%, #747474 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Watchlist Cards Container */
+.watchlistbody .titlecards {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.watchlistbody .card-list-popular {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Card Styles with Hover Effects */
+.watchlistbody .card {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+}
+
+.watchlistbody .card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+}
+
+.watchlistbody .card img {
+    transition: transform 0.3s ease;
+}
+
+.watchlistbody .card:hover img {
+    transform: scale(1.1);
+}
+
+/* Card Options Overlay */
+.watchlistbody .card-options {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.watchlistbody .card:hover .card-options {
+    opacity: 1;
+}
+
+/* Remove Icon */
+.remove-icon {
+    color: red;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 8px;
+    transition: all 0.3s ease;
+}
+
+.remove-icon:hover {
+    color: darkred;
+    font-size: 16px;
+    transform: scale(1.8);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .watchlistbody .card-list-popular {
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .watchlistbody .titlecards h4 {
+        font-size: 1.5rem;
+        padding-left: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .watchlistbody h1 {
+        padding-top: 30px;
+        font-size: 1.8rem;
+    }
+
+    .watchlistbody .titlecards h4 {
+        font-size: 1.3rem;
+        padding-left: 10px;
+    }
+
+    .watchlistbody .card-list-popular {
+        gap: 12px;
+        padding: 10px;
+        justify-content: center;
+    }
+
+    .watchlistbody .card:hover {
+        transform: translateY(-5px) scale(1.02);
+    }
+}

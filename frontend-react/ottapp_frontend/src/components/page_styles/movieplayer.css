@@ -1,0 +1,187 @@
+/* Page Container */
+.movie-player-page {
+    background-color: #141414;
+    /* Netflix-like dark background */
+    min-height: 100vh;
+    color: #fff;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+/* Hero Section - Full Screen Video */
+.player-hero {
+    width: 100%;
+    height: 100vh;
+    /* Takes full viewport height */
+    position: relative;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.videoplayer {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* Ensures video is fully visible without cropping */
+    outline: none;
+}
+
+/* Play Button Overlay */
+.play-button-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90px;
+    height: 90px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Bouncy transition */
+    border: 3px solid rgba(255, 255, 255, 0.7);
+    z-index: 10;
+}
+
+.play-button-overlay:hover {
+    background: rgba(229, 9, 20, 0.8);
+    /* Brand color on hover */
+    transform: translate(-50%, -50%) scale(1.15);
+    border-color: rgba(229, 9, 20, 1);
+}
+
+.play-icon {
+    width: 50px;
+    height: 50px;
+    color: white;
+    fill: white;
+    margin-left: 5px;
+    /* Visual centering adjustment */
+}
+
+/* Details Section */
+.movie-details-container {
+    padding: 40px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: linear-gradient(to bottom, #141414, #141414);
+}
+
+.movie-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.movie-meta {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    color: #bcbcbc;
+}
+
+.match-score {
+    color: #46d369;
+    /* Netflix Match Green */
+    font-weight: bold;
+}
+
+.age-rating,
+.quality {
+    border: 1px solid #bcbcbc;
+    padding: 0 5px;
+    font-size: 0.8rem;
+    border-radius: 2px;
+}
+
+.movie-description {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #fff;
+    max-width: 800px;
+    text-align: left;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .movie-details-container {
+        padding: 20px 5%;
+    }
+
+    .movie-title {
+        font-size: 2rem;
+    }
+
+    .movie-meta {
+        flex-wrap: wrap;
+        gap: 10px;
+        font-size: 0.9rem;
+    }
+
+    .movie-description {
+        font-size: 1rem;
+    }
+
+    .play-button-overlay {
+        width: 70px;
+        height: 70px;
+    }
+
+    .play-icon {
+        width: 35px;
+        height: 35px;
+    }
+
+    /* Remove black bars on mobile */
+    .player-hero {
+        height: auto;
+        min-height: auto;
+        aspect-ratio: 16/9;
+    }
+
+    .video-wrapper,
+    .videoplayer {
+        height: auto;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .movie-player-page {
+        overflow-x: hidden;
+    }
+
+    .movie-title {
+        font-size: 1.5rem;
+    }
+
+    .play-button-overlay {
+        width: 60px;
+        height: 60px;
+    }
+
+    .play-icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    .video-wrapper {
+        width: 100vw;
+        /* Ensure no horizontal scroll caused by video width */
+    }
+}

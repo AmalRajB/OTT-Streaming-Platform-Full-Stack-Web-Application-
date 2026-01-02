@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'admin_handleuser.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'admin_navbar.css' %}">
+
+</head>
+
+<body>
+    {% include 'partials/admin_navbar.html' %}
+
+    <div class="container mt-4">
+        <table class="table table-bordered table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>User Email</th>
+                    <th>Status</th>
+                    <th>User History</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for users in user %}
+                <tr>
+                    <td>{{users.id}}</td>
+                    <td>{{users.email}}</td>
+                    <td>
+                        <form method="post" action="{% url 'user_block' users.id %}">
+                            {% csrf_token %}
+
+                            {% if users.is_active %}
+                            <button type="submit" class="btn btn-sm btn-danger">
+                                Block
+                            </button>
+                            {% else %}
+                            <button type="submit" class="btn btn-sm btn-success">
+                                Unblock
+                            </button>
+                            {% endif %}
+                        </form>
+                    </td>
+                    <td><a href="{% url 'admin_userhistory' users.id %}">see...</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- <script>
+        const toggleButtons = document.querySelectorAll('.toggle-btn');
+        toggleButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                if (button.innerText.toLowerCase() === 'block') {
+                    button.innerText = 'Unblock';
+                } else {
+                    button.innerText = 'Block';
+                }
+            });
+        });
+    </script> -->
+
+</body>
+
+</html>

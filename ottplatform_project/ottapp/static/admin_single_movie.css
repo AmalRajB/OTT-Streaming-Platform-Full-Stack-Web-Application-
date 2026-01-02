@@ -1,0 +1,19 @@
+.thumbnail {
+    width: 250px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    
+}
+.title{
+    margin-top: 10px;
+    text-transform: capitalize;
+    font-weight: bold;
+
+}
+.discription{
+    width: 1000px;
+    text-align:justify;
+}
+
+

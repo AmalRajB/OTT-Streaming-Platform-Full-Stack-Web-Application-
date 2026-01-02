@@ -1,0 +1,253 @@
+.titlecards {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.titlecards h4 {
+    margin-bottom: 8px;
+    color: whitesmoke;
+    margin-left: 10px;
+}
+
+.card-list {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 10px 0;
+    /* Add padding for hover effect space */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.card-list::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.card-list {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.card-list .card {
+    flex: 0 0 auto;
+}
+
+.card-list img {
+    width: 200px;
+    height: 300px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.card-list img:hover {
+    transform: scale(1.05);
+}
+
+.card-list-popular {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 10px 0;
+
+}
+
+.card-list-popular::-webkit-scrollbar {
+    display: none;
+}
+
+.card-list-popular h4 {
+    margin-bottom: 8px;
+    color: whitesmoke;
+    margin-left: 10px;
+}
+
+.card-list-popular {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.card-list-popular .card {
+    flex: 0 0 auto;
+}
+
+.card-list-popular img {
+    width: 300px;
+    height: 200px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.card-list-popular img:hover {
+    transform: scale(1.05);
+}
+
+
+.card-list-recommended {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 10px 0;
+
+}
+
+.card-list-recommended::-webkit-scrollbar {
+    display: none;
+}
+
+.card-list-recommended h4 {
+    margin-bottom: 8px;
+    color: whitesmoke;
+    margin-left: 10px;
+}
+
+.card-list-recommended {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.card-list-recommended .card {
+    flex: 0 0 auto;
+}
+
+.card-list-recommended img {
+    width: 300px;
+    height: 200px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.card-list-recommended img:hover {
+    transform: scale(1.05);
+}
+
+/* Card Options Styles */
+.card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+}
+
+.card-options {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 8px;
+}
+
+.card:hover .card-options {
+    opacity: 1;
+}
+
+.card-options button {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+}
+
+.card-options button:hover {
+    background: white;
+    transform: scale(1.1);
+}
+
+.card-options .icon {
+    width: 24px;
+    height: 24px;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.card-options button:hover .icon {
+    color: black;
+}
+
+
+.card-list-recommended {
+    animation: card-list-recommended both;
+    animation-timeline: view(10% 5%);
+}
+@keyframes card-list-recommended {
+    from {
+        filter: saturate(0) contrast(4) brightness(.1) blur(1px);
+        opacity: 0;
+        scale: .95;
+        translate: 0 4rem;
+    }
+    to {
+        filter: none;
+        opacity: 1;
+        scale: 1;
+        translate: 0 0;
+    }
+} 
+
+.card-list-popular {
+    animation: card-list-popular both;
+    animation-timeline: view(10% 5%);
+}
+@keyframes card-list-popular {
+    from {
+        filter: saturate(0) contrast(4) brightness(.1) blur(1px);
+        opacity: 0;
+        scale: .95;
+        translate: 0 4rem;
+    }
+    to {
+        filter: none;
+        opacity: 1;
+        scale: 1;
+        translate: 0 0;
+    }
+} 
+
+/* .card-list {
+    animation: card-list both;
+    animation-timeline: view(10% 5%);
+}
+@keyframes card-list {
+    from {
+        filter: saturate(0) contrast(4) brightness(.1) blur(5px);
+        opacity: 0;
+        scale: .95;
+        translate: 0 4rem;
+    }
+    to {
+        filter: none;
+        opacity: 1;
+        scale: 1;
+        translate: 0 0;
+    }
+}  */

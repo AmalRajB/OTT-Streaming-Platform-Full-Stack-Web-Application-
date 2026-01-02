@@ -1,0 +1,42 @@
+.changepass_body {
+    background-color: black;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.changepass_input {
+    width: 500px;
+}
+
+.changepass_form {
+    margin-bottom: 100px;
+}
+
+.changepass_btn {
+    margin-top: 20px;
+    width: 100px;
+}
+
+.changepass_cancel {
+    margin-top: 20px;
+    width: 100px;
+    margin-left: 10px;
+
+}
+.changepass_error{
+    font-weight: bold;
+    color: red;
+}
+.changepass_cancel a {
+  text-decoration: none;
+  color: white;
+}
+
+.changepass_cancel a:hover {
+  color: white;
+  text-decoration: none;
+}

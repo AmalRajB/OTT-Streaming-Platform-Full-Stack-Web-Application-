@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'admin_home.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'admin_navbar.css' %}">
+
+</head>
+
+<body>
+    {% include 'partials/admin_navbar.html' %}
+
+    <div class="container">
+        <table class="table table-bordered table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>Movie Title</th>
+                    <th>Movie Thumbnail</th>
+                    <th>Action</th>
+                    <th>View</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for movie in data %}
+                <tr>
+                    <td>{{movie.title}}</td>
+                    <td>{{movie.thumbnail}}</td>
+                    <td>
+                        <!-- <span class="btn btn-sm btn-secondary"><a href="{% url 'delete_movie' movie.id %}">delete</a></span> -->
+                        <form method="POST" action="{% url 'delete_movie' movie.id %}" style="display:inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-sm btn-secondary"
+                                onclick="return confirm('Are you sure you want to delete this movie?');">
+                                Delete
+                            </button>
+                        </form>
+
+                        <a href="{% url 'editmovie' movie.id %}" class="editbtn btn btn-sm btn-secondary">Update</a>
+
+                    </td>
+                    <td>  <a href="{% url 'admin_single_movie' movie.id %}" class="infobtn btn btn-sm btn-secondary" > See info</a>  </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+
+</body>
+
+</html>

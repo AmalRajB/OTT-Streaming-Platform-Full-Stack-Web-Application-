@@ -1,0 +1,27 @@
+body {
+    background-color: #ffffff;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+table {
+    border: 1px solid #dee2e6;
+}
+
+thead th {
+    text-align: center;
+    font-size: 18px;
+}
+
+tbody td {
+    text-align: center;
+    font-size: 16px;
+}
+
+tbody tr:hover {
+    background-color: #f2f2f2;
+}
+

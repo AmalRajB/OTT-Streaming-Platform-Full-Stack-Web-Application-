@@ -1,0 +1,34 @@
+{% load static %}
+<nav class="admin-navbar">
+
+    <div class="nav-container">
+        <a href="{% url 'admin_home' %}" class="navbar-brand">
+            <img src="{% static 'images/logo.png' %}" alt="Logo" class="navbar-logo">
+        </a>
+
+        <button class="menu-toggle" aria-label="Toggle navigation">
+            <span class="hamburger"></span>
+        </button>
+        <div class="nav-links">
+            <a href="{% url 'admin_home' %}" class="nav-item">Home</a>
+            <a href="{% url 'movie_add' %}" class="nav-item">AddMovie</a>
+            <a href="{% url 'admin_mostview' %}" class="nav-item">MostViews</a>
+            <a href="{% url 'admin_handleuser' %}" class="nav-item">Users</a>
+            <a href="{% url 'admin_profile' %}" class="nav-item">Profile</a>
+        </div>
+    </div>
+</nav>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener('click', function () {
+                navLinks.classList.toggle('active');
+                menuToggle.classList.toggle('active');
+            });
+        }
+    });
+</script>

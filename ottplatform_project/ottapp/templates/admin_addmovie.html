@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'admin_addmovie.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'admin_navbar.css' %}">
+
+</head>
+
+<body>
+    {% include 'partials/admin_navbar.html' %}
+
+    <div class="container">
+        <h1>Add A Movie</h1>
+        <form method="POST" action="" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+
+            <div class="form-group">
+                {{ form.title.errors }}
+                <label for="{{ form.title.id_for_label }}">Movie Title:</label>
+                {{ form.title }}
+            </div>
+            <br>
+
+            <div class="form-group">
+                {{ form.discription.errors }}
+                <label for="{{ form.discription.id_for_label }}">Description:</label>
+                {{ form.discription }}
+            </div>
+            <br>
+
+            <div class="form-group">
+                {{ form.movie_file.errors }}
+                <label for="{{ form.movie_file.id_for_label }}">Upload Movie File:</label>
+                {{ form.movie_file }}
+            </div>
+            <br>
+
+            <div class="form-group">
+                {{ form.thumbnail.errors }}
+                <label for="{{ form.thumbnail.id_for_label }}">Upload Thumbnail File:</label>
+                {{ form.thumbnail }}
+            </div>
+            <br>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+</body>
+
+</html>
