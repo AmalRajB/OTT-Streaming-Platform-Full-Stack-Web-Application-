@@ -3,10 +3,15 @@ import '../page_styles/changepass.css'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import Checkauth from '../auth/checkauth'
+import { useDispatch, useSelector } from "react-redux";
+import { removeUser } from '../../store/authslice';
+
+
 
 
 const changepass = () => {
 
+  const dispatch = useDispatch();
 
   const [password, setpassword] = useState({
     old_password: "",
@@ -27,7 +32,8 @@ const changepass = () => {
       }
     ).then(response => {
       setErrorMessage('')
-      navigator('/home')
+      dispatch(removeUser());
+      navigator('/')
     }).catch(error => {
       if (error.response && error.response.data) {
         const data = error.response.data;

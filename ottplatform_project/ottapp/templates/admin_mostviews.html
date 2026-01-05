@@ -10,26 +10,34 @@
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'admin_home.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'admin_navbar.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'admin_mostview.css' %}">
 
 </head>
 
 <body>
-        {% include 'partials/admin_navbar.html' %}
+    {% include 'partials/admin_navbar.html' %}
 
     <div class="container">
         <table class="table table-bordered table-hover">
             <thead class="table-dark">
                 <tr>
+                    <th>Rank</th>
                     <th>Movie Title</th>
                     <th>Total Views</th>
                 </tr>
             </thead>
             <tbody>
+                {% for movie in top_10_movies %}
                 <tr>
-                    <td>KGF chapter 2</td>
-                    <td>500</td>
-                    
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ movie.title }}</td>
+                    <td>{{ movie.view_count }}</td>
                 </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="3" class="text-center">No views recorded yet.</td>
+                </tr>
+                {% endfor %}
             </tbody>
         </table>
 

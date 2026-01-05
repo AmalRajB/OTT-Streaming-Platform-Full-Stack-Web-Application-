@@ -8,6 +8,7 @@ from django.contrib.auth.password_validation import validate_password
 from django.core.exceptions import ValidationError
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
+from django.db.models import Count, F
 
 
 # ------------ admin pagess-------------
@@ -38,10 +39,13 @@ def admin_userhistory(request,id):
 
 @login_required(login_url='admin_login')
 def admin_mostviews(request):
-    return render(request,'admin_mostviews.html')
+    top_10_movies = Movieadd.objects.order_by('-view_count')[:10]
+    return render(request, 'admin_mostviews.html', {'top_10_movies': top_10_movies})
 
 def admin_login(request):
-    if request.method == 'POST':
+    if request.user.is_authenticated:
+        return redirect('admin_home')
+    elif request.method == 'POST':
         email = request.POST.get('email')
         password = request.POST.get('password')
         admin  = authenticate(request,email=email,password=password)
@@ -85,15 +89,19 @@ def addmovie_form(request):
     return render(request,'admin_addmovie.html',{'form':form})
 
 @login_required(login_url='admin_login')
-def movie_edit(request,id):
-    data = Movieadd.objects.get(id=id)
+def movie_edit(request, id):
+    data = get_object_or_404(Movieadd, id=id)
+
     if request.method == 'POST':
-        form = Addmovieform(request.POST, request.FILES,  instance = data)
+        form = Addmovieform(request.POST, request.FILES, instance=data)
         if form.is_valid():
             form.save()
             return redirect('admin_home')
-    form = Addmovieform(instance=data)
-    return render(request,'admin_editmovie.html',{'form':form})
+    else:
+        
+        form = Addmovieform(instance=data)
+
+    return render(request, 'admin_editmovie.html', {'form': form})
 
 @login_required(login_url='admin_login')
 def delete_movie(request,id):
@@ -135,11 +143,6 @@ def admin_pass_change(request):
         update_session_auth_hash(request, user)
         return redirect('admin_home')
     return render(request,'admin_passchange.html')
-
-
-
-
-
 
 
 
@@ -358,7 +361,9 @@ def add_watch_history(request):
 
     history, created = WatchHistory.objects.get_or_create(user=user,movie=movie)
 
-    if not created:
+    if created:
+        movie.view_count += 1
+        movie.save()
         history.save()
     return Response({"message": "Added to watch history"})   
 
@@ -372,6 +377,3 @@ def view_watch_history(request):
     )
     serializer = WatchhistorySerializers(history,many=True)
     return Response(serializer.data)
-
- 
-    

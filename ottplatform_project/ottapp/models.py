@@ -39,6 +39,7 @@ class Movieadd(models.Model):
     discription = models.TextField()
     movie_file = models.FileField(upload_to='movie/')
     thumbnail = models.ImageField(upload_to='thumbnail/')
+    view_count = models.PositiveIntegerField(default=0)
 
 class WatchList(models.Model):
         user = models.ForeignKey(

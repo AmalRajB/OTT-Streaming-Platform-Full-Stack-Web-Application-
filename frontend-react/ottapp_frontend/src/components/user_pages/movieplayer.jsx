@@ -54,6 +54,8 @@ function VideoPlayer() {
         }
     };
 
+
+
     const handlePlayClick = () => {
         if (videoRef.current) {
             videoRef.current.play().catch(error => {

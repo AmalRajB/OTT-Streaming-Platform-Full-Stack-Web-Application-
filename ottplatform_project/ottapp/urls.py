@@ -20,7 +20,6 @@ urlpatterns = [
 
 
 
-
     
     # restapi urls
     path('api_signup',views.api_signup,name='api_signup'),

@@ -4,4 +4,4 @@ from .models import Movieadd
 class Addmovieform(forms.ModelForm):
     class Meta:
         model = Movieadd
-        fields ='__all__'
+        exclude = ('view_count',)
